@@ -11,7 +11,10 @@ const outSeconds = document.querySelector('[data-seconds]');
 
 let outDate = 0;
 
-const onLoad = () => start.disabled = true;
+const onLoad = () => {
+    start.disabled = true;
+    inputDate.disabled = false;
+}
 
 // inputDate.disabled = true;
 
