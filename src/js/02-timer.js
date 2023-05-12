@@ -18,9 +18,13 @@ const onLoad = () => start.disabled = true;
 function outTime (outDate) {
     const { days, hours, minutes, seconds } = convertMs(outDate);
     outDays.textContent = days;
-    outHours.textContent = hours;
-    outMinutes.textContent = minutes;
-    outSeconds.textContent = seconds;
+    // outHours.textContent = String(hours).padStart(2,"0");
+    // outMinutes.textContent = String(minutes).padStart(2,"0");
+    // outSeconds.textContent = String(seconds).padStart(2,"0");
+
+    outHours.textContent = addLeadingZero(hours);
+    outMinutes.textContent = addLeadingZero(minutes);
+    outSeconds.textContent = addLeadingZero(seconds);
     // console.log (selectedDates[0])
     // console.log(new Date())
 }
@@ -66,15 +70,8 @@ const options = {
     return { days, hours, minutes, seconds };
   }
 
-
   function addLeadingZero(value) {
-    console.log(typeof(value))
-    const newValue = value.toString();
-    console.log(typeof(newValue))    
-    if (newValue.lenght <= 2){
-        value.padStart(2,0);
-    }
-    return newValue;
+    return String(value).padStart(2,"0");
   }
 
   flatpickr(inputDate, options)
@@ -82,7 +79,7 @@ const options = {
   window.addEventListener('load', onLoad);
 
   start.addEventListener('click', () => {
-    // inputDate.disabled = true;
+    inputDate.disabled = true;
     start.disabled = true;
 
     // outTime(outDate);
@@ -91,7 +88,11 @@ const options = {
             outDate -= 1000;
             outTime(outDate);
         }
-        else clearInterval(timer);
+        else {
+            clearInterval(timer);
+            inputDate.disabled = false;
+            start.disabled = false;
+        }
       }, 1000)
   })
 
