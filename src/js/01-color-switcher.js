@@ -2,6 +2,8 @@ const start = document.querySelector('button[data-start]');
 const stop = document.querySelector('button[data-stop]');
 const body = document.body;
 
+// const startInterval = 0;
+
 // const btn = document.querySelectorAll('button');
 
 
@@ -47,6 +49,7 @@ const onLoad = () => {
     stop.disabled = true;
 }
 
-window.addEventListener('load', onLoad);
+
 start.addEventListener('click', onStart);
 stop.addEventListener('click', onStop);
+window.addEventListener('load', onLoad);
