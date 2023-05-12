@@ -31,3 +31,18 @@ height: 30px;
   width: 30%;
   height: auto;
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.timer {
+  display: flex;
+  column-gap: 25;
+}
+
+.value {
+  font-size: x-large;
+}
