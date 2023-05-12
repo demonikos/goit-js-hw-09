@@ -29,6 +29,7 @@ const onStart = () => {
     start.disabled = true;
     stop.disabled = false;
     body.style.backgroundColor = getRandomHexColor();
+    console.log('started!');
     startInterval = setInterval(() => {
         // let u = getRandomHexColor();
         // console.log(u);
@@ -38,10 +39,10 @@ const onStart = () => {
 }
 
 const onStop = () => {
-    clearInterval(startInterval);
-    // console.log('stoped!');
     start.disabled = false;
     stop.disabled = true;
+    clearInterval(startInterval);
+    console.log('stoped!');
 }
 
 const onLoad = () => {
