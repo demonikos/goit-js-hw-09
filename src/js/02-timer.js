@@ -20,7 +20,7 @@ const onLoad = () => {
 
 function outTime (outDate) {
     const { days, hours, minutes, seconds } = convertMs(outDate);
-    outDays.textContent = days;
+    outDays.textContent = addLeadingZero(days);
     // outHours.textContent = String(hours).padStart(2,"0");
     // outMinutes.textContent = String(minutes).padStart(2,"0");
     // outSeconds.textContent = String(seconds).padStart(2,"0");
